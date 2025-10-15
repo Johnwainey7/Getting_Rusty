@@ -70,8 +70,6 @@ fn main() {
     };
     greet_user("Lejohn");
 
-    let result = add_numbers(5, 3);
-    println!("Result: {}", result);
 
     let (sum, product) = calculate(4, 6);
     println!("Sum: {}, Product: {}", sum, product);
@@ -79,12 +77,61 @@ fn main() {
     // Calls to functions in the `if_else` module
     if_else::if_else();
     if_else::if_as_expression();
-}
 
-fn add_numbers(a: i32, b: i32) -> i32 {
-    a + b
+    // Infinite loop with break
+    let mut counter = 0;
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2; //Return value from loop
+        }
+    };
+    println!("Result: {}", result);
+
+    //while loop
+    let mut number = 3;
+    while number != 0 {
+        println!( "{}", number);
+        number -= 1;
+    }
+    println!("LIFTOFF!!!");
+
+    //For loop with range
+    for number in 1..4 { // 1, 2, 3 (4 is excluded)
+        println!("{}", number);
+    }
+
+    // for loop with arry
+    let a = [10,20,30,40,50];
+    for element in a {
+        println!("the value is : {}", element);
+    }
+
+    //for loop with index
+    for (index, value) in a.iter().enumerate() {
+        println!("the value at index {} is: {}", index, value);
+    }
+
+    //this is a line comment
+    /*
+    *This is a block comment
+    *spanning multiple lines
+     */
+    println!("Result: {}", add(2, 3));
 }
 
 fn calculate(a: i32, b: i32) -> (i32, i32) {
     (a + b, a * b)
+}
+///This function adds two numbers together
+/// 
+/// #Examples
+/// 
+/// ```
+/// let result = add(2, 3);
+/// assert_eq!(result,5);
+/// ```
+fn add(a: i32, b: i32) -> i32 {
+    a + b
 }
